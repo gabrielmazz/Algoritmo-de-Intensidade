@@ -4,7 +4,6 @@ import numpy as np
 from rich.console import Console
 from rich.prompt import Prompt
 import os
-import cv2
 from PIL import Image
 from io import BytesIO
 import requests
@@ -12,7 +11,8 @@ import requests
 # Leitura da imagem
 def leitura_Imagem(nome):
     
-    imagem = cv2.imread(nome, cv2.IMREAD_GRAYSCALE)
+    imagem = Image.open(nome)
+    
     return imagem
 
 # Realiza a plotagem das imagens com o matplotlib
@@ -55,7 +55,7 @@ def escolher_imagens(imagens, console):
     
     # Escolhe uma imagem para aplicar o filtro Box
     while True:
-        escolha = int(Prompt.ask('Escolha uma imagem para aplicar o [bold purple]Filtro Box[/bold purple]', console=console))
+        escolha = int(Prompt.ask('Escolha uma imagem para aplicar o filtro de [bold purple]Intensidade[/bold purple]', console=console))
         
         if escolha > 0 and escolha <= len(imagens):
             return imagens[escolha-1]

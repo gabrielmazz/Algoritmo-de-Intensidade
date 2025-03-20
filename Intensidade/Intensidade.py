@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def segment_image(image):
+    
     # Converter para grayscale se necessário
     img = image.convert("L")
     img_array = np.array(img)
