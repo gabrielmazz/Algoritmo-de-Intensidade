@@ -1,12 +1,12 @@
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
-import numpy as np
 from rich.console import Console
 from rich.prompt import Prompt
 import os
 from PIL import Image
 from io import BytesIO
 import requests
+import cv2
 
 # Leitura da imagem
 def leitura_Imagem(nome):
@@ -36,9 +36,10 @@ def plotagem_imagem(Imagem_Original, Imagem_Intensidade):
     # Mostra a figura com os subplots
     plt.show()
     
-def salvar_imagem(Imagem_Binaria, nome):
+def salvar_imagem(Imagem, nome):
     
-    plt.imsave(nome, Imagem_Binaria, cmap='Greys')
+    Imagem.save(nome)
+    
     
 def lista_imagens_pasta(pasta, console):
     

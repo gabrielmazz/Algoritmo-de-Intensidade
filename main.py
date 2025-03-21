@@ -1,7 +1,5 @@
-import matplotlib.pyplot as plt
 import argparse
 from rich.console import Console
-from rich.prompt import Prompt
 from rich.progress import Progress
 import Intensidade.Intensidade as intens
 import Utils.utils_imagem as ut_img
@@ -49,7 +47,7 @@ def intensidade(imagem_escolhida, tipo):
     
     # Salva a imagem na pasta de resultados
     if args.save:
-        ut_img.salvar_imagem(imagem_intensidade, 'Imagem_Intensidade_{}'.format(imagem_escolhida))
+        ut_img.salvar_imagem(imagem_intensidade, './Resultados/Imagem_Intensidade_{}'.format(imagem_escolhida))
         
     if args.info:
         ut_code.print_infos(end_time, tipo, imagem_escolhida)
